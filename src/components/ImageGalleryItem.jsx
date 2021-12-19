@@ -1,8 +1,15 @@
-function ImageGalleryItem({ id, user,img, alt}) {
+function ImageGalleryItem({ openModal, id, img, alt, largeImage, onClick }) {
+    function onLiClick(e) { 
+        openModal()
+        onClick(e)
+    }
     return (
-        <li id={id} key={id}>
-            <p> {user}</p>
-            <img src={img} alt={ alt }/>
+        <li id={id} key={id} onClick={onLiClick} className='ImageGalleryItem'>
+            <img
+                className="ImageGalleryItem-image"
+                src={img}
+                alt={alt}
+                data-source={largeImage} />
         </li>
     )
 }

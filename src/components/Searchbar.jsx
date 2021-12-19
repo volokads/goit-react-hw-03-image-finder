@@ -31,16 +31,19 @@ class Searchbar extends Component {
         // })
     }
     render() {
-    return  (  <div>
-        <form onSubmit={this.handleSearch}>
+    return  (  <div className="Searchbar">
+        <form className="SearchForm" onSubmit={this.handleSearch}>
+            <button className="SearchForm-button" type="submit">
+                <span className="SearchForm-button-label">Search</span>
+            </button>
             <input
+                className="SearchForm-input"
                 name="search"
                 type="text"
-                placeholder="search"
+                placeholder="Search images and photos"
                 onChange={this.handleChange}
                 value={this.state.value}>
             </input>
-            <button type="submit"> Search </button>
         </form>
         </div>)
     }

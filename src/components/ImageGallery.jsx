@@ -20,9 +20,11 @@ class ImageGallery extends Component {
             this.setState({status: "pending"})
             setTimeout(() => axios(`https://pixabay.com/api/?q=${this.props.searchValue}&page=${this.state.tryPage}&key=23569558-943bf7c3d65c4197ad4bffe73&image_type=photo&orientation=horizontal&per_page=12`)
                 .then(list => list.data.hits)
-                .then(hits => this.setState({ listItems: hits, status: "resolved", tryPage: 1 }))
+                .then(hits => this.setState({ listItems: hits, status: "resolved"}))
                 // .then(console.log))
-            , 1000)}
+                , 1000)
+                this.setState({tryPage: 1})
+        }
     }
     nextPage = () => { 
         this.state.tryPage += 1
